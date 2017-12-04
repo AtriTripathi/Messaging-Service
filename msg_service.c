@@ -1,7 +1,7 @@
 /**************************************
-*	                              *
-*	 Author: Atri Tripathi        *
-*                                     *
+*	                                 *
+*	 Author: Atri Tripathi           *
+*                                 	 *
 **************************************/
 
 #include<stdio.h>
@@ -208,7 +208,6 @@ int main()
 
 
 // This is the main Menu screen, shown to the user at the start of the program.
-
 void mainMenu(userData u[], int *count)
 {
     int option;
@@ -242,7 +241,6 @@ void mainMenu(userData u[], int *count)
 
 
 // This function allows the Users to Login with their Username and Password.
-
 void userLogin(userData u[], int *db_size)     			 // Here, second parameter is the no. of users who have already registered.
 {
     int check_username, check_password, input, i, usr_found = 0;
@@ -297,7 +295,6 @@ void userLogin(userData u[], int *db_size)     			 // Here, second parameter is 
 }
 
 // Function to notify the Users about their wrong credentials and let them try again.
-
 void wrongCredentials(userData u[], int *db_size)
 {
     printf("\n Invalid Username or Password\n");
@@ -307,7 +304,6 @@ void wrongCredentials(userData u[], int *db_size)
 
 
 // This function allows the Users to Register their accounts.
-
 void userRegister (userData u[], int *count)
 {
 	char confirm_password[15];			// Auxiliary variable to check if the passwords entered are consistent.
@@ -369,7 +365,6 @@ void userRegister (userData u[], int *count)
 
 
 // This is where the User is always logged on to, in the beginning.
-
 void userDashboard(userData u[], int *count)
 {
 	int choice;
@@ -400,7 +395,6 @@ void userDashboard(userData u[], int *count)
 }
 
 // This function handles the Username of the person, whom the user wants to send a message
-
 void sendMessage(userData u[], int *db_size)
 {
     int input, check, i;
@@ -462,7 +456,6 @@ void actualMessage(char usr_name[])
 }
 
 //This function displays the most recent message recieved by the logged user.
-
 void displayMessage(userData u[], int *count)
 {
 	FILE *fp;
@@ -502,7 +495,6 @@ void displayMessage(userData u[], int *count)
 }
 
 //This function will remove all files containing messages send by different user.
-
 void removeFiles(userData u[], int *count)
 {
 	char filename[15];
@@ -516,7 +508,7 @@ void removeFiles(userData u[], int *count)
 }
 
 /*This function will convert original message in various 4X4 matrix (16 byte).
-**Every matrix is encrypted and then encryped form will be restored in message string.*/
+* Every matrix is encrypted and then encryped form will be restored in message string.*/
 void performAesEncryption(uch message[])
 {
 	int i,j,k,m;
@@ -755,7 +747,11 @@ void invShiftRow(uch mat[4][4])
 	mat[3][0]=temp;		
 }
 
-/*This function peform mix column operation of AES.
+/*
+------------------------------------------------------------------------
+Ignore the folowing comment. Trying alternate code.
+------------------------------------------------------------------------
+This function peform mix column operation of AES.
 **Each column of matrix mat is multiplied with a fixed matrix.
 **In GF, addition operation is equivalent to bitwise XOR operation.
 **Here, multiplying any hexadecimal character with 0x02 is replaced by logical left shift once and conditional bitwise XOR operation.
@@ -824,3 +820,5 @@ void invMixCol(uch mat[4][4])
 		mat[3][j] = (mul11[a[0]]) ^ (mul13[a[1]]) ^ (mul9[a[2]]) ^ (mul14[a[3]]); 
 	}
 }
+
+
